@@ -8,8 +8,11 @@ for dir in /usr/src/vendor/* ; do
     cp -rp $dir /usr/src/app/node_modules/$dir_name
   fi
 
-  echo "Rebuilding linked modules"
-  npm rebuild
 done
+
+echo "Installing npm modules"
+npm install
+echo "Rebuilding linked modules"
+npm rebuild
 
 /bin/bash -c -- "$@"
